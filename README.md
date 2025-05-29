@@ -1,15 +1,75 @@
-Welcome to your new dbt project!
+# DBT Fundamentals Project
 
-### Using the starter project
+This project is built following the [dbt Fundamentals Course](https://learn.getdbt.com/courses/dbt-fundamentals), demonstrating core dbt concepts with the Jaffle Shop data using Snowflake as the data warehouse.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Installation
 
+1. Create and activate virtual environment:
+```bash
+python -m venv dbt-venv
+source dbt-venv/bin/activate
+```
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+2. Install requirements from parent directory:
+```bash
+pip install -r requirements.txt
+```
+
+## Project Structure
+```
+dbt-fundamentals/
+├── models/
+│   ├── staging/          
+│   │   ├── stripe/
+│   │   │   ├── stg_payments.sql
+│   │   │   └── schema.yml
+│   │   └── jaffle_shop/
+│   │       ├── stg_customers.sql
+│   │       ├── stg_orders.sql
+│   │       └── schema.yml
+│   └── marts/
+│       └── dim_customers.sql
+├── tests/
+└── dbt_project.yml
+```
+
+## Model Lineage
+
+![Model Lineage](model_lineage.png)
+
+## Running the Project
+
+1. Set up your Snowflake credentials in `~/.dbt/profiles.yml`
+
+2. Execute models:
+```bash
+dbt run
+dbt test
+```
+
+## Key Learnings from dbt Fundamentals Course
+
+- Sources and staging models
+- Model materialization strategies
+- Testing and documentation
+- dbt Core functionality
+- Project organization
+- Model dependencies and refs
+
+## Testing & Documentation
+
+Run tests:
+```bash
+dbt test
+```
+
+Generate docs:
+```bash
+dbt docs generate
+dbt docs serve
+```
+
+## Resources
+
+- [dbt Fundamentals Course](https://learn.getdbt.com/courses/dbt-fundamentals)
+- [dbt Documentation](https://docs.getdbt.com/docs/introduction)

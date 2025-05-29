@@ -1,3 +1,4 @@
 /.vscode
 /dbt-venv
 /logs
+*venv*
